@@ -14,9 +14,14 @@
         <a :href="url_naver">go to naver</a>
       </div>
 
-      <div class="cart">Cart{{ cart }}</div>
+      <div class="cart">Cart{{ cart.length }}</div>
       <!-- render component -->
-      <product-display :premium="premium"></product-display>
+      <!-- receive emitted event by @event-name -->
+      <product-display
+        :premium="premium"
+        @add-to-cart="incCart"
+        @subtract-from-cart="decCart"
+      ></product-display>
     </div>
 
     <!-- Import App -->

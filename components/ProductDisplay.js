@@ -44,7 +44,9 @@ app.component('product-display', {
           <p v-else>10">Out of Stock</p>
           <p v-if="onSale">On Sale</p>
           <p>{{ desc }}</p>
+
           <product-details :details="details"></product-details>
+          
           <ul>
             <li v-for="size in sizes">{{ size }}</li>
           </ul>
@@ -102,11 +104,11 @@ app.component('product-display', {
   },
   methods: {
     addToCart() {
-      // this means data
-      this.cart += 1;
+      // emitting up event
+      this.$emit('add-to-cart', this.variants[this.selectedVariant].id);
     },
     subtractFromCart() {
-      this.cart -= 1;
+      this.$emit('subtract-from-cart', this.variants[this.selectedVariant].id);
     },
     updateVariant(index) {
       this.selectedVariant = index;

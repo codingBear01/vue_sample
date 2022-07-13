@@ -4,10 +4,18 @@ const app = Vue.createApp({
   // data() return full of data
   data() {
     return {
-      cart: 0,
+      cart: [],
       url_naver: 'https://www.naver.com',
       premium: false,
     };
   },
-  methods: {},
+  methods: {
+    // declare methods to update cart cnts
+    incCart(id) {
+      this.cart.push(id);
+    },
+    decCart(id) {
+      this.cart.pop(id);
+    },
+  },
 });
