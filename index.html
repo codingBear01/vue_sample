@@ -24,7 +24,11 @@
               :src="image"
               :class="image"...
             -->
-            <img v-bind:src="image" alt="socks_green" />
+            <img
+              v-bind:src="image"
+              alt="socks_green"
+              :class="[inStock ? '' : 'out-of-stock-img']"
+            />
           </div>
           <div class="product-info">
             <!-- inside of double curly brace refers product property in Vue app -->
@@ -51,16 +55,25 @@
               <li v-for="size in sizes">{{ size }}</li>
             </ul>
             <!-- @mouseover = hover event -->
+            <!-- you should write style property name by camel case cuz that's javascript or kebab case like this 'background-color' -->
             <div
               v-for="variant in variants"
               :key="variant.id"
               @mouseover="updateImage(variant.image)"
-            >
-              {{ variant.color }}
-            </div>
+              class="color-circle"
+              :style="{ backgroundColor: variant.color}"
+            ></div>
             <!-- v-on listens to events(ex. click)
             you can write like this @click='method' -->
-            <button class="button" v-on:click="addToCart">Add to Cart</button>
+            <!-- :class is applied whenever !inStock -->
+            <button
+              class="button"
+              :class="{ disabledButton: !inStock}"
+              :disabled="!inStock"
+              v-on:click="addToCart"
+            >
+              Add to Cart
+            </button>
             <button class="button" v-on:click="subtractFromCart">
               Subtract from Cart
             </button>

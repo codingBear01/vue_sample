@@ -8,7 +8,7 @@ const app = Vue.createApp({
       desc: 'This Socks are so comfortable',
       image: './assets/images/socks_blue.jpg',
       url_naver: 'https://www.naver.com',
-      inStock: true,
+      inStock: false,
       onSale: true,
       inventory: 5,
       details: ['50% cotton', '30% wool', '20% polyester'],
