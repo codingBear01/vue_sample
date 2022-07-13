@@ -6,14 +6,24 @@
     <!-- Import Styles -->
     <link rel="stylesheet" href="./assets/styles.css" />
     <!-- Import Vue.js -->
-    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
   </head>
   <body>
     <div id="app">
-      <h1>Product goes here</h1>
+      <!-- inside of double curly brace refers product property in Vue app -->
+      <h1>{{ product }}</h1>
+      <p>{{ desc }}</p>
     </div>
 
-    <!-- Import Js -->
+    <!-- Import Vue App -->
     <script src="./main.js"></script>
+
+    <!-- Mount Vue App -->
+    <script>
+      // mountedApp refers to the app imported
+      // argument of mount is a DOM selector(this case by id)
+      // enter mountedApp.product = 'val' on console, product's value is going to be changed
+      const mountedApp = app.mount('#app');
+    </script>
   </body>
 </html>
