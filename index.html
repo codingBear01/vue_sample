@@ -10,9 +10,27 @@
   </head>
   <body>
     <div id="app">
-      <!-- inside of double curly brace refers product property in Vue app -->
-      <h1>{{ product }}</h1>
-      <p>{{ desc }}</p>
+      <div class="nav-bar">
+        <a :href="url_naver">go to naver</a>
+      </div>
+
+      <div class="product-display">
+        <div class="product-container">
+          <div class="product-image">
+            <!-- v-bind: dynamically bind an attribute to an expression -->
+            <!-- you can write also like this for dynamic attribute 
+              :src="image"
+              :class="image"...
+            -->
+            <img v-bind:src="image" alt="socks_green" />
+          </div>
+          <div class="product-info">
+            <!-- inside of double curly brace refers product property in Vue app -->
+            <h1>{{ product }}</h1>
+            <p>{{ desc }}</p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Import Vue App -->

@@ -6,6 +6,8 @@ const app = Vue.createApp({
     return {
       product: 'Socks',
       desc: 'This Socks are so comfortable',
+      image: './assets/images/socks_green.jpg',
+      url_naver: 'https://www.naver.com',
     };
   },
 });
