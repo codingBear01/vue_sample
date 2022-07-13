@@ -32,7 +32,8 @@
           </div>
           <div class="product-info">
             <!-- inside of double curly brace refers product property in Vue app -->
-            <h1>{{ product }}</h1>
+            <h1 v-show="onSale">{{ title }}</h1>
+            <p>{{ sale }}</p>
             <!-- if inStock is true, show the first p tag, otherwise show the second p tag -->
             <p v-if="inStock">In Stock</p>
             <p v-else>Out of Stock</p>
@@ -57,9 +58,9 @@
             <!-- @mouseover = hover event -->
             <!-- you should write style property name by camel case cuz that's javascript or kebab case like this 'background-color' -->
             <div
-              v-for="variant in variants"
+              v-for="(variant, index) in variants"
               :key="variant.id"
-              @mouseover="updateImage(variant.image)"
+              @mouseover="updateVariant(index)"
               class="color-circle"
               :style="{ backgroundColor: variant.color}"
             ></div>
