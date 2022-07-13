@@ -6,8 +6,11 @@ const app = Vue.createApp({
     return {
       product: 'Socks',
       desc: 'This Socks are so comfortable',
-      image: './assets/images/socks_green.jpg',
+      image: './assets/images/socks_blue.jpg',
       url_naver: 'https://www.naver.com',
+      inStock: true,
+      onSale: true,
+      inventory: 5,
     };
   },
 });

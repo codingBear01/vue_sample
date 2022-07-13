@@ -27,6 +27,22 @@
           <div class="product-info">
             <!-- inside of double curly brace refers product property in Vue app -->
             <h1>{{ product }}</h1>
+            <!-- if inStock is true, show the first p tag, otherwise show the second p tag -->
+            <!-- <p v-if="inStock">In Stock</p> -->
+            <!-- <p v-else>Out of Stock</p> -->
+
+            <!-- v-show is used for toggling in el's visibility. if value is false, display:none will be added -->
+            <p v-show="inStock">In Stock</p>
+
+            <!-- you can use multiple conditions -->
+            <p v-if="inventory > 10">In Stock {{ inventory }}</p>
+            <p v-else-if="inventory <= 10 && inventory > 0">
+              Almost sold out {{ inventory }}
+            </p>
+            <p v-else>10">Out of Stock</p>
+
+            <p v-if="onSale">On Sale</p>
+
             <p>{{ desc }}</p>
           </div>
         </div>
